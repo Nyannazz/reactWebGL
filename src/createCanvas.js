@@ -22,6 +22,9 @@ const drawShader = (gl, program, dimension) => {
     const positionBuffer = gl.createBuffer();
     gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
 
+
+    const customOffset=gl.getUniformLocation(program, "offset");
+
     // draw 2 triangles creating a square
     const positions = [
         -1, -1,
@@ -38,6 +41,10 @@ const drawShader = (gl, program, dimension) => {
     gl.clearColor(0, 0, 0, 0);
     gl.clear(gl.COLOR_BUFFER_BIT);
     gl.useProgram(program);
+    // set custom uniform offset
+    gl.uniform2f(customOffset, 0.0, 0.0);
+
+
     gl.enableVertexAttribArray(positionAttributeLocation);
 
 
