@@ -19,11 +19,11 @@ const createShaderProgram = (gl, vertexShaderSource, fragmentShaderSource) => {
 const drawShader = (gl, program, dimension) => {
 
     const positionAttributeLocation = gl.getAttribLocation(program, "a_position");
+    const canvasResolution=gl.getUniformLocation(program, "canvas_resolution");
     const positionBuffer = gl.createBuffer();
     gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
 
 
-    const customOffset=gl.getUniformLocation(program, "offset");
 
     // draw 2 triangles creating a square
     const positions = [
@@ -34,6 +34,25 @@ const drawShader = (gl, program, dimension) => {
         1, 1,
         -1, -1
     ];
+
+/*     const positions = [
+        0, 0,
+        0, 600,
+        800, 600,
+        800, 0,
+        800, 600,
+        0, 0
+    ];
+     */
+/*     const positions = [
+        200, 200,
+        200, 400,
+        400, 400,
+        400, 200,
+        400, 400,
+        200, 200
+    ]; */
+    
     gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(positions), gl.STATIC_DRAW);
 
 
@@ -42,7 +61,8 @@ const drawShader = (gl, program, dimension) => {
     gl.clear(gl.COLOR_BUFFER_BIT);
     gl.useProgram(program);
     // set custom uniform offset
-    gl.uniform2f(customOffset, 0.0, 0.0);
+
+    gl.uniform2f(canvasResolution, 1024, 576);
 
 
     gl.enableVertexAttribArray(positionAttributeLocation);

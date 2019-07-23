@@ -4,8 +4,7 @@ export default`
 
 
     void main(){
-        float myColor=length(pos_color)<0.5? 1.0 : 0.0;
 
-        gl_FragColor=vec4(vec3(myColor),1);
+        gl_FragColor=vec4(vec2(pos_color),1.0,1.0);
     }
 `

@@ -34,8 +34,8 @@ export default class App extends Component {
     canvas.canvas.width=canvas.displayWidth;
     canvas.canvas.height=canvas.displayHeight;
     
-    canvas.canvas.width=800;
-    canvas.canvas.height=600;
+    canvas.canvas.width=1024;
+    canvas.canvas.height=576;
 
   }
 
