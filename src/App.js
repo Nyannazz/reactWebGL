@@ -8,6 +8,8 @@ export default class App extends Component {
   constructor(props) {
     super(props)
     this.canvasRef=React.createRef();
+    this.canvasWidth=800;
+    this.canvasHeight=440;
     this.webGlContext=null;
 
     this.state = {
@@ -31,11 +33,14 @@ export default class App extends Component {
 
 
   resizeCanvas=(canvas)=>{
-    canvas.canvas.width=canvas.displayWidth;
-    canvas.canvas.height=canvas.displayHeight;
+    /* canvas.canvas.width=canvas.displayWidth;
+    canvas.canvas.height=canvas.displayHeight; */
     
-    canvas.canvas.width=1024;
-    canvas.canvas.height=576;
+    /* canvas.canvas.width=1024;
+    canvas.canvas.height=576; */
+
+    canvas.canvas.width=this.canvasWidth;
+    canvas.canvas.height=this.canvasHeight;
 
   }
 
@@ -49,7 +54,7 @@ export default class App extends Component {
         <header className="App-header">
      
         </header>
-        <canvas ref={this.canvasRef}/>
+        <canvas style={{height: `${this.canvasHeight}px`,width: `${this.canvasWidth}px`}} ref={this.canvasRef}/>
         <main>
         </main>
         

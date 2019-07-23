@@ -19,7 +19,6 @@ const createShaderProgram = (gl, vertexShaderSource, fragmentShaderSource) => {
 const drawShader = (gl, program, dimension) => {
 
     const positionAttributeLocation = gl.getAttribLocation(program, "a_position");
-    const canvasResolution=gl.getUniformLocation(program, "canvas_resolution");
     const positionBuffer = gl.createBuffer();
     gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
 
@@ -56,14 +55,21 @@ const drawShader = (gl, program, dimension) => {
     gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(positions), gl.STATIC_DRAW);
 
 
-    gl.viewport(0, 0, gl.canvas.width, gl.canvas.height);
+    gl.viewport(0, 0, gl.drawingBufferWidth, gl.drawingBufferHeight);
     gl.clearColor(0, 0, 0, 0);
     gl.clear(gl.COLOR_BUFFER_BIT);
     gl.useProgram(program);
     // set custom uniform offset
+    
+    const canvasResolution=gl.getUniformLocation(program, "u_resolution");
+    const zoomCenter=gl.getUniformLocation(program, 'u_zoomCenter');
+    const zoomValue=gl.getUniformLocation(program, 'u_zoomSize');
+    const maxIteration=gl.getUniformLocation(program,'u_maxIterations');
 
-    gl.uniform2f(canvasResolution, 1024, 576);
-
+    gl.uniform2f(canvasResolution, gl.canvas.clientWidth, gl.canvas.clientHeight);
+    gl.uniform2f(zoomCenter,-1.0,0.0);
+    gl.uniform1f(zoomValue,2.0);
+    gl.uniform1i(maxIteration,100);
 
     gl.enableVertexAttribArray(positionAttributeLocation);
 

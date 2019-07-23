@@ -1,6 +1,7 @@
 html, body, .App {
   height: 100%;
   overflow: hidden;
+  background-color: lightblue;
 }
 
 canvas {
@@ -8,8 +9,10 @@ canvas {
   display: block;
   /* height: calc(100% - 3rem);
     width: 100%; */
-  width: 1024px;
-  height: 576px;
+  /* width: 1024px;
+    height: 576px; */
+  /* width: 800px;
+    height: 800px; */
   margin: 0 auto;
   padding: 0;
 }
