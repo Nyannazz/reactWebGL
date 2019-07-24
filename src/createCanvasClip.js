@@ -44,12 +44,12 @@ const drawShader = (gl, program, dimension) => {
     ];
      */
 /*     const positions = [
-        0, 0,
-        0, 900,
-        900, 900,
-        900, 0,
-        900, 900,
-        0, 0
+        200, 200,
+        200, 400,
+        400, 400,
+        400, 200,
+        400, 400,
+        200, 200
     ]; */
     
     gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(positions), gl.STATIC_DRAW);
@@ -67,8 +67,8 @@ const drawShader = (gl, program, dimension) => {
     const maxIteration=gl.getUniformLocation(program,'u_maxIterations');
 
     gl.uniform2f(canvasResolution, gl.canvas.clientWidth, gl.canvas.clientHeight);
-    gl.uniform2f(zoomCenter,0.0,0.0);
-    gl.uniform1f(zoomValue,1.0);
+    gl.uniform2f(zoomCenter,-1.0,0.0);
+    gl.uniform1f(zoomValue,2.0);
     gl.uniform1i(maxIteration,100);
 
     gl.enableVertexAttribArray(positionAttributeLocation);

@@ -8,8 +8,8 @@ export default class App extends Component {
   constructor(props) {
     super(props)
     this.canvasRef=React.createRef();
-    this.canvasWidth=800;
-    this.canvasHeight=440;
+    this.canvasWidth=1600;
+    this.canvasHeight=900;
     this.webGlContext=null;
 
     this.state = {
