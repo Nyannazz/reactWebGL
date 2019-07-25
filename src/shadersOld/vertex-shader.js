@@ -7,9 +7,6 @@ export default`
 
     void main(){
         gl_Position=vec4(a_position,1,1);
-        //clipSpace=vec2(a_position.x, a_position.y/aspectRatio)*2.0;
-
-        // adjust for canvas aspectRatio
-        clipSpace=vec2(a_position.x, a_position.y/aspectRatio);
+        clipSpace=vec2(a_position.x, a_position.y/aspectRatio)*2.0;
     }
 `
