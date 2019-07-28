@@ -1,1 +1,1 @@
-fullpage webgl background in webgl currently displaying mandelbrot fractal
+fullpage background in webgl and react currently displaying mandelbrot fractal
